@@ -1,4 +1,4 @@
-{% docs ['payment_method'] %}
+{% docs 'payment_method' %}
 
 One of the following values: 
 
