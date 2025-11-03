@@ -1,8 +1,10 @@
+version: 2
 
 sources:
   - name: stripe
     database: raw
     schema: stripe
+    description: A clone of a Postgres application database.
     config:
       freshness:
         warn_after:
@@ -14,8 +16,10 @@ sources:
       loaded_at_field: _batched_at
     tables:
       - name: payment
+        description: Raw payment data.
         columns:
           - name: id
+            description: Primary key for the payment data.
             data_tests:
               - unique
               - not_null
