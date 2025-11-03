@@ -1,0 +1,28 @@
+models:
+  - name: stg_stripe_payment
+    description: One payment per row.
+    columns:
+      - name: payment_id
+        description: Primary key for the payment table.
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_tests:
+          - relationships:
+              field: order_id
+              to: ref('stg_jaffle_shop__orders')
+      - name: payment_method
+        data_tests:
+          - accepted_values:
+              values:
+                - credit_card
+                - bank_transfer
+                - gift_card
+                - coupon
+      - name: payment_status
+        data_tests:
+          - accepted_values:
+              values:
+                - success
+                - fail

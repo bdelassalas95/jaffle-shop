@@ -14,3 +14,8 @@ sources:
       loaded_at_field: _batched_at
     tables:
       - name: payment
+        columns:
+          - name: id
+            data_tests:
+              - unique
+              - not_null
