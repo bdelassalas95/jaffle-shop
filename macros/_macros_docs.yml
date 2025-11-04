@@ -18,3 +18,16 @@ macros:
       - name: role
         type: string
         description: The name of the role you want to grant priviliges on, by default is our target role
+
+  - name: union_tables_by_prefix
+    description: A macro that unions tables based on a prefix string
+    arguments:
+      - name: database
+        type: string
+        description: The name of the target database you want to union objects from
+      - name: schema
+        type: string
+        description: The name of the target schema you want to union objects from
+      - name: prefix
+        type: string
+        description: The prefix text string of the tables you want to union together
