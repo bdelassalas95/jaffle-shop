@@ -20,14 +20,16 @@ models:
         description: "{{ doc('order_status') }}"
         data_tests:
           - accepted_values:
-              values:
-                - completed
-                - return_pending
-                - placed
-                - shipped
-                - returned
+              arguments:
+                values:
+                  - completed
+                  - return_pending
+                  - placed
+                  - shipped
+                  - returned
       - name: customer_id
         data_tests:
           - relationships:
-              field: customer_id
-              to: ref('stg_jaffle_shop__customers')
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
