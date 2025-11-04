@@ -39,9 +39,6 @@ models:
 
     marts:
       +materialized: table
-
-    snowflake_spend:
-      enabled: true
       
 flags:
   require_generic_test_arguments_property: true
