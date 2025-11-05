@@ -47,3 +47,14 @@ macros:
       - name: dry_run
         type: boolean
         description: Flag to determine if you want to actually run the commands or just compile code
+
+  - name: generate_schema_name
+    description: A macro that creates a custom schema name for building objects
+    arguments:
+      - name: custom_schema_name
+        type: string
+        description: The custom schema name you want to enter, defaults to target schema if no custom schema name entered
+      - name: node
+        type: string
+        description: The node currently being processed
+        
