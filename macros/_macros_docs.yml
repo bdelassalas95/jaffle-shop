@@ -49,7 +49,7 @@ macros:
         description: Flag to determine if you want to actually run the commands or just compile code
 
   - name: generate_schema_name
-    description: A macro that creates a custom schema name for building objects
+    description: A macro that creates a custom schema name for building objects depending on the environment you are using
     arguments:
       - name: custom_schema_name
         type: string
