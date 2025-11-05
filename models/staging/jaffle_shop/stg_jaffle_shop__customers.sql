@@ -1,8 +1,4 @@
--- {{
---     config(
---         schema='staging'
---     )
--- }}
+--{{ config(schema='staging')}}
 
 with 
 
