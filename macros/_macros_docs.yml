@@ -46,7 +46,7 @@ macros:
         description: The number of days from when an object was last altered to determine if it should be dropped, by default is 7 days
       - name: dry_run
         type: boolean
-        description: Flag to determine if you want to actually run the commands or just compile code
+        description: T|F flag to determine if you want to actually run the commands or just compile code
 
   - name: generate_schema_name
     description: A macro that creates a custom schema name for building objects depending on the environment you are using
@@ -57,4 +57,20 @@ macros:
       - name: node
         type: string
         description: The node currently being processed
+
+  - name: clean_models_by_pattern
+    description: A macro that drops tables or views based on a prefix pattern
+    arguments:
+      - name: table_pattern
+        type: string
+        description: The prefix pattern you want to search objects to drop against, note to tactfully use '%' at end
+      - name: database
+        type: string
+        description: The database you want to drop objects from, defaults to target database
+      - name: schema
+        type: string
+        description: The schema you want to drop objects from, defaults to target schema
+      - name: dry_run
+        type: boolean
+        description: T|F flag to determine if you want to actually run the commands or just compile code
         
