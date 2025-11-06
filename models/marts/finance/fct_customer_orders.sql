@@ -1,36 +1,51 @@
 with
 
+orders as (
+
+    select * from {{ ref('stg_jaffle_shop__orders') }}
+
+),
+
+customers as (
+
+    select * from {{ ref('stg_jaffle_shop__customers') }}
+
+),
+
+payments as (
+
+    select
+
+        order_id,
+        max(payment_date) as payment_finalized_date,
+        sum(payment_amount) as total_amount_paid
+    
+    from {{ ref('stg_stripe__payment') }}
+
+    where payment_status <> 'fail'
+
+    group by 1
+
+),
+
 paid_orders as (
 
     select
     
-        orders.id as order_id,
-        orders.user_id	as customer_id,
+        orders.order_id,
+        orders.customer_id,
         orders.order_date as order_placed_at,
-        orders.status as order_status,
-        p.total_amount_paid,
-        p.payment_finalized_date,
-        c.first_name as customer_first_name,
-        c.last_name as customer_last_name
+        orders.order_status,
+        payments.total_amount_paid,
+        payments.payment_finalized_date,
+        customers.first_name as customer_first_name,
+        customers.last_name as customer_last_name
 
-    from raw.jaffle_shop.orders as orders
+    from orders
 
-    left join (
-        
-        select
-        
-            orderid as order_id,
-            max(created) as payment_finalized_date,
-            sum(amount) / 100.0 as total_amount_paid
-        from raw.stripe.payment
+    left join payments using (order_id)
 
-        where status <> 'fail'
-
-        group by 1
-
-    ) p on orders.id = p.order_id
-
-    left join raw.jaffle_shop.customers c on orders.user_id = c.id
+    left join customers using (customer_id)
 
 ),
 
@@ -38,14 +53,15 @@ customer_orders as (
     
     select
 
-        c.id as customer_id,
+        customers.customer_id,
         min(order_date) as first_order_date,
         max(order_date) as most_recent_order_date,
-        count(orders.id) as number_of_orders
+        count(orders.order_id) as number_of_orders
 
-    from raw.jaffle_shop.customers c
+    from customers
 
-    left join raw.jaffle_shop.orders as orders on orders.user_id = c.id 
+    left join orders using (customer_id)
+
     group by 1
     
 )
@@ -81,7 +97,7 @@ customer_orders as (
         group by 1
         
         order by p.order_id
-        
+
     ) x on x.order_id = p.order_id
     
     order by order_id

@@ -18,8 +18,8 @@ customer_orders as (
 
         orders.*,
         customers.full_name,
-        customers.surname,
-        customers.givenname,
+        customers.last_name as surname,
+        customers.first_name givenname,
 
         --Customer level aggregations--
         min(orders.order_date) over (
