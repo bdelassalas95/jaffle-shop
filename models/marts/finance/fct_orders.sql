@@ -2,12 +2,10 @@
     config(
         materialized = 'incremental',
         unique_key = 'order_id',
-        partition_by = {
-            "field": "order_date",
-            "data_type": "date",
-            "granularity": "day"
-        },
-        incremental_strategy = 'insert_overwrite'
+        incremental_strategy = 'microbatch',
+        event_time = 'order_date',
+        begin = '2018-04-09',
+        batch_size = 'day'
     )
 }}
 
@@ -52,7 +50,7 @@ final as (
 
 select * from final
 
-{% if is_incremental() %}
-    -- this filter will only be applied on an incremental run
-    where order_date >= (select max(order_date) from {{ this }}) 
-{% endif %}
+-- {% if is_incremental() %}
+--     -- this filter will only be applied on an incremental run
+--     where order_date >= (select max(order_date) from {{ this }}) 
+-- {% endif %}
