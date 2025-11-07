@@ -1,5 +1,3 @@
-version: 2
-
 snapshots:
   - name: payment_snapshot
     relation: source('stripe', 'payment')

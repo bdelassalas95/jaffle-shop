@@ -1,5 +1,3 @@
-version: 2
-
 seeds:
   - name: employees
     description: A csv mapping customer_id to employee_id
