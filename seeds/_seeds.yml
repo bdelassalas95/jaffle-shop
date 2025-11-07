@@ -1,0 +1,15 @@
+version: 2
+
+seeds:
+  - name: employees
+    description: A csv mapping customer_id to employee_id
+    columns:
+      - name: employee_id
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
