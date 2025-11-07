@@ -14,4 +14,4 @@
 
     {%- endif -%}
 
-{%- endmacro %}
+{%- endmacro -%}
