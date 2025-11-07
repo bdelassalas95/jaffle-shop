@@ -3,6 +3,7 @@ seeds:
     description: A csv mapping customer_id to employee_id
     columns:
       - name: employee_id
+      - name: employee_email
       - name: customer_id
         data_tests:
           - unique

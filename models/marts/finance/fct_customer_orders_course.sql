@@ -12,6 +12,12 @@ customers as (
 
 ),
 
+employees as (
+
+    select * from {{ ref('employees') }}
+
+),
+
 customer_orders as (
 
     select
@@ -48,11 +54,16 @@ customer_orders as (
             
         array_agg(distinct orders.order_id) over (
             partition by orders.customer_id
-        )as customer_order_ids
+        )as customer_order_ids,
+
+        employees.employee_id,
+        employees.employee_email
 
     from orders
     
     join customers using (customer_id)
+
+    left join employees using (customer_id)
 
 ),
 
@@ -82,7 +93,9 @@ final as (
         customer_total_lifetime_value as total_lifetime_value,
         order_value_dollars,
         order_status,
-        payment_status
+        payment_status,
+        employee_id,
+        employee_email
 
     from add_avg_order_values
 

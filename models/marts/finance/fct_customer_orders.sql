@@ -12,6 +12,12 @@ customers as (
 
 ),
 
+employees as (
+
+    select * from {{ ref('employees') }}
+
+),
+
 final as (
 
     select
@@ -28,11 +34,15 @@ final as (
         customer_sales_seq,
         case when customer_first_order_date = customer_most_recent_order_date then 'new' else 'return' end as nvsr,
         customer_lifetime_value,
-        customer_first_order_date as fdos
+        customer_first_order_date as fdos,
+        employees.employee_id,
+        employees.employee_email
 
     from orders
 
     left join customers using (customer_id)
+
+    left join employees using (customer_id)
 
 )
 
