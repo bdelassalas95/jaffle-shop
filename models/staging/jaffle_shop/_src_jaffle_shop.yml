@@ -1,5 +1,3 @@
-version: 2
-
 sources:
   - name: jaffle_shop
     database: raw
