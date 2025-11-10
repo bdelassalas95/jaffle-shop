@@ -16,3 +16,4 @@ dbt courses completed:
 4. Incremental Models
 5. Snapshots
 6. Analyses and Seeds
+7. Exposures
