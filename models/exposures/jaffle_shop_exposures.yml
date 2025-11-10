@@ -2,7 +2,7 @@ exposures:
   - name: orders_data
     label: orders_data
     type: notebook
-    maturity: low
+    maturity: high
     url: https://tinyurl.com/jaffle-shop-reporting
     description: 'Exposure for orders data'
     depends_on:
