@@ -17,3 +17,5 @@ dbt courses completed:
 5. Snapshots
 6. Analyses and Seeds
 7. Exposures
+8. Understanding state
+9. dbt retry
