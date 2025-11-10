@@ -1,0 +1,13 @@
+exposures:
+  - name: orders_data
+    label: orders_data
+    type: dashboard
+    maturity: low
+    url: https://tinyurl.com/jaffle-shop-reporting
+    description: 'Exposure for orders data'
+    depends_on:
+      - ref('fct_orders')
+    owner:
+      name: Bryan De Las Salas
+      email: bdelassalas@gmail.com
+      
