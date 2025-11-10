@@ -2,34 +2,16 @@ sources:
   - name: jaffle_shop
     database: raw
     schema: jaffle_shop
-    description: A clone of a Postgres application database.
-    config:
-      freshness:
-        warn_after:
-          count: 12
-          period: hour
-        error_after:
-          count: 7
-          period: day
-      loaded_at_field: _etl_loaded_at
+    description: E-commerce data
     tables:
       - name: customers
-        description: Raw customer data.
-        columns:
-          - name: id
-            description: Primary key for the customer data.
-            data_tests:
-              - unique
-              - not_null
-        config:
-          freshness:
+        description: One record per person who has purchased one or more items
       - name: orders
-        description: Raw orders data.
-        columns:
-          - name: id
-            description: Primary key for the orders data.
-            data_tests:
-              - unique
-              - not_null
-        config:
-          freshness:
+        description: One record per order (consisting of one or more order items)
+      - name: items
+        description: Items included in an order
+      - name: stores
+      - name: products
+        description: One record per SKU for items sold in stores
+      - name: supplies
+        description: One record per supply per SKU of items sold in stores

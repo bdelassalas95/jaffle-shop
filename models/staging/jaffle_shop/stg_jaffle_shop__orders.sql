@@ -1,4 +1,4 @@
-with 
+with
 
 source as (
 
@@ -9,17 +9,18 @@ source as (
 renamed as (
 
     select
-    
+
+        ----------  ids
         id as order_id,
-        user_id as customer_id,
-        order_date,
-        status as order_status,
+        store_id as location_id,
+        customer as customer_id,
 
-        row_number() over (partition by user_id order by order_date, id) as user_order_seq,
+        ---------- numerics
+        (order_total / 100.0) as order_total,
+        (tax_paid / 100.0) as tax_paid,
 
-        case when status not in ('returned','return_pending') then order_date end as order_valid_date,
-
-        _etl_loaded_at
+        ---------- timestamps
+        {{ dbt.date_trunc('day','ordered_at') }} as ordered_at
 
     from source
 
