@@ -19,3 +19,4 @@ dbt courses completed:
 7. Exposures
 8. Understanding state
 9. dbt retry
+10. dbt Mesh
