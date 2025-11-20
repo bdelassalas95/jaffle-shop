@@ -2,6 +2,7 @@ models:
   - name: dim_customers
     access: public
     group: marketing
+    latest_version: 2
     config:
       contract:
         enforced: true
@@ -26,3 +27,14 @@ models:
         data_type: number
       - name: employee_email
         data_type: varchar
+
+    versions:
+      - v: 1
+        config:
+          alias: dim_customers
+      - v: 2
+        columns:
+          - name: customer_lifetime_value
+            data_type: number
+          - include: all
+            exclude: [lifetime_value]
