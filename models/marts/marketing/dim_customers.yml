@@ -11,6 +11,9 @@ models:
         data_type: number
         constraints:
           - type: not_null
+        data_tests:
+          - unique
+          - not_null
       - name: first_name
         data_type: varchar
       - name: last_name

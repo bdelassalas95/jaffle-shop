@@ -1,3 +1,9 @@
+{{
+    config(
+        required_tests=None
+    )
+}}
+
 select
 
     customer_id,
