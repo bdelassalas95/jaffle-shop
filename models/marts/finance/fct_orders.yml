@@ -1,0 +1,20 @@
+models:
+  - name: fct_orders
+    access: public
+    group: finance
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: number
+        constraints:
+          - type: not_null
+      - name: customer_id
+        data_type: number
+      - name: order_date
+        data_type: date
+      - name: amount
+        data_type: number
+
+      
