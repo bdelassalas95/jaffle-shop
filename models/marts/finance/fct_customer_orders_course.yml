@@ -1,0 +1,36 @@
+models:
+  - name: fct_customer_orders_course
+    access: public
+    group: finance
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: number
+        constraints:
+          - type: not_null
+      - name: customer_id
+        data_type: number
+        constraints:
+          - type: not_null
+      - name: surname
+        data_type: varchar
+      - name: givenname
+        data_type: varchar
+      - name: first_order_date
+        data_type: date
+      - name: order_count
+        data_type: number
+      - name: total_lifetime_value
+        data_type: number
+      - name: order_value_dollars
+        data_type: number
+      - name: order_status
+        data_type: varchar
+      - name: payment_status
+        data_type: varchar
+      - name: employee_id
+        data_type: number
+      - name: employee_email
+        data_type: varchar

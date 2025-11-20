@@ -1,0 +1,11 @@
+groups:
+  - name: finance
+    owner:
+      name: Bryan De Las Salas
+      email: bdelassalas@gmail.com
+  - name: marketing
+    owner:
+      name: Bryan De Las Salas
+      email: bdelassalas@gmail.com
+
+      
