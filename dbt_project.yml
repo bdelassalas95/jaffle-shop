@@ -41,6 +41,7 @@ models:
 
     marts:
       +materialized: table
+      +required_tests: {"relationships.*": 1}
       
 flags:
   require_generic_test_arguments_property: true
