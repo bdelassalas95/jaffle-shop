@@ -13,8 +13,17 @@ models:
         data_tests:
           - unique
           - not_null
+          - relationships:
+              arguments:
+                field: order_id
+                to: ref('stg_jaffle_shop__orders')
       - name: customer_id
         data_type: number
+        data_tests:
+          - relationships:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
       - name: order_date
         data_type: date
       - name: amount
