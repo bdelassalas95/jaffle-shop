@@ -15,7 +15,7 @@ models:
           - not_null
           - relationships:
               arguments:
-                field: <order_id>
+                field: order_id
                 to: ref('stg_jaffle_shop__orders')
       - name: customer_id
         data_type: number
