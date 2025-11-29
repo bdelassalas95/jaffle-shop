@@ -1,11 +1,23 @@
 packages:
   - git: https://github.com/dbt-labs/dbt-codegen.git
     name: codegen
-    revision: 474f7a10582b74b03fa9c065847b6f0463d24c23
+    revision: 52884e848200e4a1e637b30b011b3ee4bc8f5714
   - name: audit_helper
     package: dbt-labs/audit_helper
     version: 0.12.1
   - name: dbt_utils
     package: dbt-labs/dbt_utils
     version: 1.3.1
-sha1_hash: dd70289947857ed5736a10428a76df122d94932e
+  - name: dbt_meta_testing
+    package: tnightengale/dbt_meta_testing
+    version: 0.3.6
+  - name: dq_tools
+    package: infinitelambda/dq_tools
+    version: 1.10.3
+  - name: dbt_expectations
+    package: metaplane/dbt_expectations
+    version: 0.10.9
+  - name: dbt_date
+    package: godatadriven/dbt_date
+    version: 0.17.0
+sha1_hash: a6eb4689c57627b54be531d383ad9f8b2f0a7e01
