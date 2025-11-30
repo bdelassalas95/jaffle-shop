@@ -28,5 +28,7 @@ models:
         data_type: date
       - name: amount
         data_type: number
+        data_tests:
+          - greater_than_five
 
       
