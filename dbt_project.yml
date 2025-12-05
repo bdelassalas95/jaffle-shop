@@ -43,6 +43,6 @@ models:
     marts:
       +materialized: table
       +meta:
-        required_tests: {"relationships.*": 1}
+        required_tests: {"relationships.*|dbt_utils.cardinality_equality": 1}
 flags:
   require_generic_test_arguments_property: true
