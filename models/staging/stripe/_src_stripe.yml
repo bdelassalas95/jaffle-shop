@@ -19,7 +19,11 @@ sources:
           - name: id
             description: Primary key for the payment data.
             data_tests:
-              - unique
+              - unique:
+                  config:
+                    warn: ">= 10"
+                    error_if: ">= 100"
               - not_null
+            
         config:
           freshness:
