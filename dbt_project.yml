@@ -37,12 +37,12 @@ models:
     staging:
       +materialized: view
       #+schema: staging
+      +meta:
+        required_tests: {"unique.*|not_null|dbt_utils.cardinality_equality": 2}
 
     marts:
       +materialized: table
       +meta:
         required_tests: {"relationships.*": 1}
-    +meta:
-      required_tests: {"unique.*|not_null": 2}
 flags:
   require_generic_test_arguments_property: true
