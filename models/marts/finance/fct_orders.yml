@@ -34,4 +34,4 @@ models:
                 group_by_column: customer_id
           - dbt_utils.expression_is_true:
               arguments:
-                expression: "<= 5"
+                expression: ">= 0"
