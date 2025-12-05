@@ -1,4 +1,4 @@
-{% test_greater_than_five(model, column_name) %}
+{% test greater_than_five(model, column_name) %}
 
 select
 
