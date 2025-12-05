@@ -38,3 +38,4 @@ models:
                 config:
                   where: "order_date = current_date"
                   error_if: ">= 100"
+                  store_failures: true

@@ -46,3 +46,7 @@ models:
         required_tests: {"relationships.*|dbt_utils.cardinality_equality": 1}
 flags:
   require_generic_test_arguments_property: true
+
+tests:
+  jaffle_shop:
+    +store_failures: true
