@@ -20,3 +20,4 @@ dbt courses completed:
 8. Understanding state
 9. dbt retry
 10. dbt Mesh
+11. Advanced Testing
