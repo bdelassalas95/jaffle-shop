@@ -39,6 +39,8 @@ models:
                 min_value: 0
                 max_value: 100
                 strictly: false
+              config:
+                limit: 5
       - name: payment_finalized_date
         data_type: date
       - name: customer_first_name
