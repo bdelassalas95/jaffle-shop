@@ -36,4 +36,4 @@ models:
               arguments:
                 expression: "<= 5"
                 config:
-                  severity: warn
+                  error_if: ">= 100"
