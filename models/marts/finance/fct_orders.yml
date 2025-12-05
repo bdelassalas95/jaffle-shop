@@ -36,4 +36,5 @@ models:
               arguments:
                 expression: "<= 5"
                 config:
+                  where: "order_date = current_date"
                   error_if: ">= 100"
