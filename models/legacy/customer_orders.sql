@@ -1,8 +1,6 @@
-{{
-    config(
-        required_tests=None
-    )
-}}
+{{ config(
+    meta={'required_tests': None}
+) }}
 
 WITH paid_orders as (select Orders.ID as order_id,
     Orders.USER_ID	as customer_id,

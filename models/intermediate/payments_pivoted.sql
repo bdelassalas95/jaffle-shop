@@ -1,9 +1,7 @@
-{{
-    config(
-        materialized='ephemeral',
-        required_tests=None
-    )
-}}
+{{ config(
+    materialized="ephemeral", 
+    meta={'required_tests': None}
+) }}
 
 with payments as (
 

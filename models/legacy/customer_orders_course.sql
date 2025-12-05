@@ -1,8 +1,6 @@
-{{
-    config(
-        required_tests=None
-    )
-}}
+{{ config(
+    meta={'required_tests': None}
+) }}
 
 select 
     orders.id as order_id,

@@ -1,10 +1,10 @@
 models:
   - name: fct_orders
-    access: public
-    group: finance
     config:
       contract:
         enforced: true
+      access: public
+      group: finance
     columns:
       - name: order_id
         data_type: number
@@ -33,5 +33,3 @@ models:
           - average_dollars_spent_greater_than_one:
               arguments:
                 group_by_column: customer_id
-
-      

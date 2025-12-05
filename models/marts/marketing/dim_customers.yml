@@ -1,11 +1,11 @@
 models:
   - name: dim_customers
-    access: public
-    group: marketing
     latest_version: 2
     config:
       contract:
         enforced: true
+      access: public
+      group: marketing
     columns:
       - name: customer_id
         data_type: number
