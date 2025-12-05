@@ -1,19 +1,31 @@
 models:
   - name: fct_customer_orders_course
-    access: public
-    group: finance
     config:
       contract:
         enforced: true
+      access: public
+      group: finance
     columns:
       - name: order_id
         data_type: number
         constraints:
           - type: not_null
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                field: order_id
+                to: ref('stg_jaffle_shop__orders')
       - name: customer_id
         data_type: number
         constraints:
           - type: not_null
+        data_tests:
+          - relationships:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
       - name: surname
         data_type: varchar
       - name: givenname

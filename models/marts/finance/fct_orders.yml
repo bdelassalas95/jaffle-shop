@@ -1,20 +1,41 @@
 models:
   - name: fct_orders
-    access: public
-    group: finance
     config:
       contract:
         enforced: true
+      access: public
+      group: finance
     columns:
       - name: order_id
         data_type: number
         constraints:
           - type: not_null
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                field: order_id
+                to: ref('stg_jaffle_shop__orders')
       - name: customer_id
         data_type: number
+        data_tests:
+          - relationships:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
       - name: order_date
         data_type: date
       - name: amount
         data_type: number
-
-      
+        data_tests:
+          - average_dollars_spent_greater_than_one:
+              arguments:
+                group_by_column: customer_id
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "<= 5"
+                config:
+                  where: "order_date = current_date"
+                  error_if: ">= 100"
+                  store_failures: true

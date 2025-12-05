@@ -1,3 +1,7 @@
+{{ config(
+    meta={'required_tests': None}
+) }}
+
 select
 
     customer_id,

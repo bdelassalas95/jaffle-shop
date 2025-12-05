@@ -1,16 +1,23 @@
 models:
   - name: dim_customers
-    access: public
-    group: marketing
     latest_version: 2
     config:
       contract:
         enforced: true
+      access: public
+      group: marketing
     columns:
       - name: customer_id
         data_type: number
         constraints:
           - type: not_null
+        data_tests:
+          - unique
+          - not_null
+          - dbt_utils.cardinality_equality:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
       - name: first_name
         data_type: varchar
       - name: last_name

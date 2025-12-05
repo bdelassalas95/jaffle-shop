@@ -30,3 +30,7 @@ models:
                 values:
                   - success
                   - fail
+              config:
+                where: "payment_status = 'success' "
+                limit: 10
+                store_failures: true

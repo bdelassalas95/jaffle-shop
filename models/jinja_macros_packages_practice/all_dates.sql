@@ -1,8 +1,7 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
+{{ config(
+    materialized="table", 
+    meta={'required_tests': None}
+) }}
 
 {{ dbt_utils.date_spine(
     datepart="day",

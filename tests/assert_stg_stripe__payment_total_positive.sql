@@ -1,3 +1,9 @@
+{{
+    config(
+        store_failures = true
+    )
+}}
+
 select
 
     order_id,

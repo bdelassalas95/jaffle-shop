@@ -1,0 +1,63 @@
+models:
+  - name: fct_customer_orders
+    config:
+      contract:
+        enforced: true
+      access: public
+      group: finance
+    columns:
+      - name: customer_id
+        data_type: number
+        constraints:
+          - type: not_null
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                field: customer_id
+                to: ref('stg_jaffle_shop__customers')
+      - name: order_id
+        data_type: number
+        constraints:
+          - type: not_null
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                field: order_id
+                to: ref('stg_jaffle_shop__orders')
+      - name: order_placed_at
+        data_type: date
+      - name: order_status
+        data_type: varchar
+      - name: total_amount_paid
+        data_type: number
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 0
+                max_value: 100
+                strictly: false
+              config:
+                limit: 5
+      - name: payment_finalized_date
+        data_type: date
+      - name: customer_first_name
+        data_type: varchar
+      - name: customer_last_name
+        data_type: varchar
+      - name: transaction_seq
+        data_type: number
+      - name: customer_sales_seq
+        data_type: number
+      - name: nvsr
+        data_type: varchar
+      - name: customer_lifetime_value
+        data_type: number
+      - name: fdos
+        data_type: date
+      - name: employee_id
+        data_type: number
+      - name: employee_email
+        data_type: varchar
