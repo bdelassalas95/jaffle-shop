@@ -11,8 +11,5 @@ packages:
   - package: tnightengale/dbt_meta_testing
     version: 0.3.6
 
-  - package: infinitelambda/dq_tools
-    version: 1.10.3
-
   - package: metaplane/dbt_expectations
     version: 0.10.9
