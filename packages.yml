@@ -13,3 +13,6 @@ packages:
 
   - package: metaplane/dbt_expectations
     version: 0.10.9
+
+  - package: infinitelambda/dq_tools
+    version: 1.10.3
