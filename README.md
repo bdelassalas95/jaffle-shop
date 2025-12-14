@@ -21,3 +21,4 @@ dbt courses completed:
 9. dbt retry
 10. dbt Mesh
 11. Advanced Testing
+12. Advanced Deployment
