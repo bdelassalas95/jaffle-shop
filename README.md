@@ -22,3 +22,6 @@ dbt courses completed:
 10. dbt Mesh
 11. Advanced Testing
 12. Advanced Deployment
+13. dbt Clone
+14. Grants
+15. Python Models
