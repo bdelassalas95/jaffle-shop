@@ -1,6 +1,9 @@
 seeds:
   - name: employees
     description: A csv mapping customer_id to employee_id
+    config:
+      grants:
+        select: ['transformer','public', 'ACCOUNTADMIN']
     columns:
       - name: employee_id
       - name: employee_email
